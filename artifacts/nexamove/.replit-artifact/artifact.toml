@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Nexamove"
+version = "1.0.0"
+id = "artifacts/nexamove"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24746
+
+[services.development]
+run = "pnpm --filter @workspace/nexamove run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nexamove", "run", "build" ]
+publicDir = "artifacts/nexamove/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24746"
+BASE_PATH = "/"
