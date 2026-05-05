@@ -60,3 +60,8 @@ export * from "./generated/api/api";
 - `/search` — Search shops by name/category
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## GitHub Push Note
+GitHub OAuth integration was dismissed twice. To push to GitHub in the future:
+- Try the GitHub integration again via Replit integrations, OR
+- Ask the user for a GitHub Personal Access Token (store as secret `GITHUB_TOKEN`) and the target repo URL, then use `git remote set-url origin https://<token>@github.com/<user>/<repo>.git && git push -u origin main`
